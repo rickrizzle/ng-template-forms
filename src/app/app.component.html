@@ -1,57 +1,66 @@
-<form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm.value)">
-  <div class="field">
-    <label for="name" class="label">Name</label>
-    <div class="control">
-      <input
-        type="text"
-        class="input"
-        [(ngModel)]="formUser.name"
-        name="name"
-        #name="ngModel"
-        required
-      />
-    </div>
-    <p [hidden]="name.valid || name.pristine" class="is-size-6 has-text-danger">
-      Name is required.
-    </p>
-  </div>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm.value)">
+        <div class="field">
+          <label for="name" class="label">Name</label>
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              [(ngModel)]="formUser.name"
+              name="name"
+              #name="ngModel"
+              required
+            />
+          </div>
+          <p
+            [hidden]="name.valid || name.pristine"
+            class="is-size-6 has-text-danger"
+          >
+            Name is required.
+          </p>
+        </div>
 
-  <div class="field">
-    <label for="email" class="label">Email</label>
-    <div class="control">
-      <input
-        type="text"
-        class="input"
-        [(ngModel)]="formUser.email"
-        name="email"
-        #email="ngModel"
-        required
-      />
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              [(ngModel)]="formUser.email"
+              name="email"
+              #email="ngModel"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password" class="label">Password</label>
+          <div class="control">
+            <input
+              type="password"
+              class="input"
+              [(ngModel)]="formUser.password"
+              name="password"
+              #password="ngModel"
+              required
+            />
+          </div>
+        </div>
+
+        <button
+          [disabled]="!templateForm.form.valid"
+          class="button is-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   </div>
-
-  <div class="field">
-    <label for="password" class="label">Password</label>
-    <div class="control">
-      <input
-        type="password"
-        class="input"
-        [(ngModel)]="formUser.password"
-        name="password"
-        #password="ngModel"
-        required
-      />
-    </div>
-  </div>
-
-  <button
-    [disabled]="!templateForm.form.valid"
-    class="button is-primary"
-    type="submit"
-  >
-    Submit
-  </button>
-</form>
+</section>
 
 <!--template reference variables-->
 <pre>Form values: {{ templateForm.form.value | json }}</pre>
@@ -67,8 +76,9 @@
 <!-- Value of name field -->
 <pre>Email: {{ email.value }}</pre>
 <!-- Value of email field -->
-
+<!--
 <pre>Name value: {{ name.value }}</pre>
 <pre>Name valid?: {{ name.valid }}</pre>
 <pre>Name pristine?: {{ name.pristine }}</pre>
 <pre>Name touched?: {{ name.touched }}</pre>
+-->
